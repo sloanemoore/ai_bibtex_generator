@@ -1,1 +1,1 @@
-# AI-BibTeX-Generator
+# AI BibTeX Generator
