@@ -53,7 +53,10 @@ with col2:
 if reset_btn:
    streamlit_js_eval(js_expressions="parent.window.location.reload()")
 
-st.write("")
+if submit_works_btn and not (name and text):
+   error_message = st.write(r"$\textcolor{red}{\textsf{\normalsize Please enter your name and text for analysis to generate the BibTeX file.}}$")
+else:
+   st.write("")
 st.divider()
 
 
