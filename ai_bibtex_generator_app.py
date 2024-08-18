@@ -73,11 +73,9 @@ if name and text and submit_works_btn:
 
   works_library = bibtexparser.parse_string(bibtex_response)
   if len(works_library.failed_blocks) > 0:
-    print("Some blocks failed to parse. Check the entries of `library.failed_blocks`.")
     st.write(r"$\textsf{\normalsize Something went wrong and a BibTeX file could not be created.}$")
   else:
-    print("All blocks parsed successfully")
-    bibtex_file = bibtexparser.write_file(f"{name}_works_bibtex_sm.bib", works_library)
+    bibtex_file = bibtexparser.write_file(f"{name}_works_bibtex.bib", works_library)
     st.write(r"$\textsf{\normalsize Click the button below to download your BibTeX file. The content of the file is also listed below.}$")
     file_download_button()
     st.write(bibtex_response)
