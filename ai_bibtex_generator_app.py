@@ -1,3 +1,4 @@
+import os
 from config import API_KEY
 from openai import OpenAI
 import streamlit as st
@@ -60,8 +61,13 @@ else:
 st.divider()
 
 
+openai_api_key = os.getenv("API_KEY")
+if openai_api_key == None:
+    openai_api_key = API_KEY
+
+
 if name and text and submit_works_btn:
-  client = OpenAI(api_key=API_KEY)
+  client = OpenAI(api_key=openai_api_key)
 
   completion = client.chat.completions.create(
     model="gpt-4o-mini",
